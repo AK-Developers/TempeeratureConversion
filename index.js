@@ -1,11 +1,21 @@
 function toCelsius(temp) {
     return (temp - 32) * 5 / 9;
 }
-function toFahrenheit() {
+
+function toFahrenheit(temp) {
     return (temp * 9) / 5 + 32;
 }
 
-// let temp = 32;
-// console.log(`The temperature is ${temp}°C, which is ${toFahrenheit(temp)}°F.`);
-
 const answer = document.getElementById("answer");
+
+document.getElementById("convertBtn").onclick = () => {
+    const temperature = Number(document.getElementById("temperature").value);
+
+    if (document.getElementById("celcius").checked) {
+        let ans = toCelsius(temperature);
+        answer.innerHTML = `<b>${temperature}°F = ${ans}°C</b>`;
+    } else if (document.getElementById("fahrenheit").checked) {
+        let ans = toFahrenheit(temperature);
+        answer.innerHTML = `<b>${temperature}°C = ${ans}°F</b>`;
+    }
+};
